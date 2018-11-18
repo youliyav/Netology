@@ -3,4 +3,6 @@ class Animal:
         self.name = name
         self.weight = weight
 
-    
+class Bird:
+    def collect_eggs(self):
+        print()
