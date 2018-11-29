@@ -22,7 +22,6 @@ def calc(list):
         print(op1 * op2)
     else:
         print(op2 // op1)
-
 calc(expr)
 
 
