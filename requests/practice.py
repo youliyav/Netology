@@ -15,9 +15,9 @@ def translate_it(text, lang_from, lang_to, file_to):
     :param text: <str> text for translation.
     :return: <str> translated text.
     """
-    url = 'https://translate.yandex.net/api/v1/tr.json/translate?id=46b7fbb9.5c0ae01b.a05ca01a-0-0&srv=tr-text&lang=en-ru'
-    # key = 'trnsl.1.1.20161025T233221Z.47834a66fd7895d0.a95fd4bfde5c1794fa433453956bd261eae80152'
-    key = 'trnsl.1.1.20161214T114634Z.0492e7b1ebd2d3b4.57c088043e2306103d52f62d96bbf3893cac7554'
+
+    url = 'https://translate.yandex.net/api/v1.5/tr.json/translate'
+    key = 'trnsl.1.1.20181203T174752Z.949933b6bd21e319.3735be4a82be1a600f791f625513c1a4ccdb7403'
 
     params = {
         'key': key,
