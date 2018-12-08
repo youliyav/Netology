@@ -17,7 +17,7 @@ def translate_it(text, lang_from, lang_to, file_to):
     """
 
     url = 'https://translate.yandex.net/api/v1.5/tr.json/translate'
-    key = 'trnsl.1.1.20181203T174752Z.949933b6bd21e319.3735be4a82be1a600f791f625513c1a4ccdb7403'
+    key = 'trnsl.1.1.20181208T111806Z.c8bf27984a2fa181.a425f3c6c156d1406139d2ba8059d45aa34b3f7d'
 
     params = {
         'key': key,
