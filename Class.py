@@ -1,19 +1,27 @@
-class Animal:
-    def __init__(self, name, weight):
+from abc import ABC, abstractmethod
+
+
+class Animal(ABC):
+    name = None
+    weight = 0
+
+    def __init__(self, name, weight = 0):
         self.name = name
         self.weight = weight
 
-    def feed(self):
-        print("{} was fed".format(self.name))
-
+    @abstractmethod
+    def collect_stuff(self):
+        pass
 
 
 class Bird(Animal):
-    def collect_eggs(self):
+    def collect_stuff(self):
         print("{}'s eggs was collected".format(self.name))
+        super().collect_stuff()
 
 class Ungulate(Animal):
-    pass
+    def collect_stuff(self):
+        super().collect_stuff()
 
 
 class Goose(Bird):
@@ -35,24 +43,29 @@ class Cow(Ungulate):
     def voice(self):
         return "muuuu..."
 
-    def milk(self):
+    def collect_stuff(self):
         print("{} was milked".format(self.name))
+        super().collect_stuff()
+
 
 
 class Sheep(Ungulate):
     def voice(self):
         return "beeee..."
 
-    def trimm(self):
+    def collect_stuff(self):
         print("{} was trimmed".format(self.name))
+        super().collect_stuff()
 
 
 class Goat(Ungulate):
     def voice(self):
         return "meeee..."
 
-    def milk(self):
+    def collect_stuff(self):
         print("{} was milked".format(self.name))
+        super().collect_stuff()
+
 
 
 total_weight = 0
@@ -88,26 +101,11 @@ farm_list.append(goat_1)
 duck_0 = Duck("Kryakva", 5)
 farm_list.append(duck_0)
 
-goose_0.collect_eggs()
-goose_1.feed()
-cow_0.milk()
-sheep_0.feed()
-sheep_1.trimm()
-chicken_0.collect_eggs()
-chicken_1.collect_eggs()
-goat_0.milk()
-goat_1.feed()
-duck_0.collect_eggs()
 
-def total_weight(farm_list):
-  total_weight = 0
-  heaviest = None
-  for x in farm_list:
-    total_weight += x.weight
-    if heaviest == None:
-      heaviest = x
-    elif x.weight > heaviest.weight:
-      heaviest = x
-  return print('Общий вес животных: {}, самое тяжелое животное {}'.format(total_weight, heaviest.name))
+for animal_farm in farm_list:
+    animal_farm.collect_stuff()
+    total_weight += animal_farm.weight
 
-total_weight(farm_list)
+farm_list.sort(key=lambda x: x.weight)
+
+print('Общий вес животных: {}, самое тяжелое животное {}'.format(total_weight, farm_list[-1].name))
